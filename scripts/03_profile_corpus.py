@@ -21,6 +21,8 @@ else:
     empty_lines = 0
     non_empty_lines = 0
     total_tokens = 0
+    total_tokens = 0 
+    unique_tokens = set()
 
     shortest_line = None
     longest_line = None
@@ -29,6 +31,7 @@ else:
         for line in file:
             total_lines += 1
             total_tokens += len(line.split())
+            unique_tokens.update(line.split())
 
             line = line.strip()
 
@@ -37,17 +40,17 @@ else:
             else:
                 non_empty_lines += 1
 
-                if shortest_line is None or len(line) < len(shortest_line):
+            if shortest_line is None or len(line) < len(shortest_line):
                     shortest_line = line
 
-                if longest_line is None or len(line) > len(longest_line):
+            if longest_line is None or len(line) > len(longest_line):
                     longest_line = line
 
     print("Total lines:", total_lines)
     print("Empty lines:", empty_lines)
     print("Non-empty lines:", non_empty_lines)
     print("Total tokens:", total_tokens)
-
+    print("Unique tokens:", len(unique_tokens))
     print("Shortest line (characters):", len(shortest_line))
     print("Longest line (characters):", len(longest_line))
 
