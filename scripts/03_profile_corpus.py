@@ -21,7 +21,6 @@ else:
     empty_lines = 0
     non_empty_lines = 0
     total_tokens = 0
-    total_tokens = 0 
     unique_tokens = set()
 
     shortest_line = None
